@@ -1,11 +1,6 @@
-const message = "Rapports de l'entreprise";
-const companyName = "companyName";
+import { getFilesInFolder } from "./dataProvider";
+import displayWelcomeMessage from "./presentation";
 
-const dateObject = new Date();
-const todayDate = dateObject.toLocaleDateString();
+displayWelcomeMessage("Rapport de la société", "Ma petite boite de dev");
 
-console.log(`${message} ${companyName} !`);
-
-console.log(
-  `--------------------------Rapport du ${todayDate}--------------------------`
-);
+getFilesInFolder("employees");
