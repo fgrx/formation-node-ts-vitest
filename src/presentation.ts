@@ -1,3 +1,5 @@
+import IAnalyzer from "./interfaces/iAnalyzer";
+
 function displayWelcomeMessage(message: string, companyName: string) {
   const dateObject = new Date();
   const todayDate = dateObject.toLocaleDateString();
@@ -9,4 +11,13 @@ function displayWelcomeMessage(message: string, companyName: string) {
   );
 }
 
-export default displayWelcomeMessage;
+function displayAnalytics(analyzer: IAnalyzer) {
+  console.log("-> Nombre d'employés : " + analyzer.getNumberOfEmployees());
+
+  const { nbGenderM, nbGenderF } = analyzer.getGenderRepartition();
+  console.log(`-> Répartition : ${nbGenderF} femmes et ${nbGenderM} hommes `);
+
+  console.log(`-> Total des salaires : ${analyzer.getTotalSalaries()}`);
+}
+
+export { displayWelcomeMessage, displayAnalytics };

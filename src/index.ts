@@ -1,7 +1,7 @@
 import { getFilesContentInJson, getFilesInFolder } from "./dataProvider";
-import displayWelcomeMessage from "./presentation";
 import * as dotenv from "dotenv";
 import Analyzer from "./analyzer";
+import { displayAnalytics, displayWelcomeMessage } from "./presentation";
 
 dotenv.config();
 
@@ -14,8 +14,4 @@ const files = getFilesInFolder(folder);
 const data = getFilesContentInJson(folder, files);
 
 const analyzer = new Analyzer(data);
-console.log(`-> Nombre d'employés :  ${analyzer.getNumberOfEmployees()}`);
-const { nbGenderM, nbGenderF } = analyzer.getGenderRepartition();
-console.log(`-> Répartition : ${nbGenderF} femmes et ${nbGenderM} hommes `);
-
-console.log(`-> Total des salaires : ${analyzer.getTotalSalaries()}`);
+displayAnalytics(analyzer);
