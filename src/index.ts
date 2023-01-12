@@ -1,11 +1,21 @@
 import { getFilesContentInJson, getFilesInFolder } from "./dataProvider";
 import displayWelcomeMessage from "./presentation";
+import * as dotenv from "dotenv";
+import Analyzer from "./analyzer";
 
-displayWelcomeMessage("Rapport de la société", "Ma petite boite de dev");
+dotenv.config();
 
-const folder = "employees";
+const folder = process.env.FOLDER || "default";
+const company = process.env.COMPANY || "Company";
+
+displayWelcomeMessage("Rapport de la société", company);
 
 const files = getFilesInFolder(folder);
-const content = getFilesContentInJson(folder, files);
+const data = getFilesContentInJson(folder, files);
 
-console.log(content);
+const analyzer = new Analyzer(data);
+console.log(`-> Nombre d'employés :  ${analyzer.getNumberOfEmployees()}`);
+const { nbGenderM, nbGenderF } = analyzer.getGenderRepartition();
+console.log(`-> Répartition : ${nbGenderF} femmes et ${nbGenderM} hommes `);
+
+console.log(`-> Total des salaires : ${analyzer.getTotalSalaries()}`);
