@@ -1,6 +1,11 @@
-import { getFilesInFolder } from "./dataProvider";
+import { getFilesContentInJson, getFilesInFolder } from "./dataProvider";
 import displayWelcomeMessage from "./presentation";
 
 displayWelcomeMessage("Rapport de la société", "Ma petite boite de dev");
 
-getFilesInFolder("employees");
+const folder = "employees";
+
+const files = getFilesInFolder(folder);
+const content = getFilesContentInJson(folder, files);
+
+console.log(content);
