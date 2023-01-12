@@ -28,7 +28,13 @@ function getFilesContentInJson(folder: string, files: string[]): IEmployee[] {
   return items;
 }
 
+function getDataFromFolder(folder: string): IEmployee[] {
+  const files = getFilesInFolder(folder);
+  const data = getFilesContentInJson(folder, files);
+  return data;
+}
+
 const completeFilePath = (folder: string, file: string) =>
   `./${folder}/${file}`;
 
-export { getFilesInFolder, getFilesContentInJson };
+export { getDataFromFolder };
