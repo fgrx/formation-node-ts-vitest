@@ -4,14 +4,15 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "tsc -w & nodemon dist"
+    "dev": "tsc -w & nodemon dist",
+    "test": "vitest"
   },
   "author": "Fabien Grignoux",
   "license": "ISC",
   "devDependencies": {
     "@types/node": "^18.11.18",
-    "nodemon": "^2.0.20"
+    "nodemon": "^2.0.20",
+    "vitest": "^0.27.1"
   },
   "dependencies": {
     "dotenv": "^16.0.3"
