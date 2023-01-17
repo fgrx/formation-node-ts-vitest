@@ -1,4 +1,4 @@
-import IAnalyzer from "./interfaces/iAnalyzer";
+import Analyzer from "./analyzer";
 
 function displayWelcomeMessage(message: string, companyName: string) {
   const dateObject = new Date();
@@ -11,7 +11,7 @@ function displayWelcomeMessage(message: string, companyName: string) {
   );
 }
 
-function displayAnalytics(analyzer: IAnalyzer) {
+function displayAnalytics(analyzer: Analyzer) {
   console.log("-> Nombre d'employés : " + analyzer.getNumberOfEmployees());
 
   const { nbGenderM, nbGenderF } = analyzer.getGenderRepartition();

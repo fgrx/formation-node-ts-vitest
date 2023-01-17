@@ -1,7 +1,6 @@
-import IAnalyzer from "./interfaces/iAnalyzer";
 import IEmployee from "./interfaces/iEmployee";
 
-class Analyzer implements IAnalyzer {
+class Analyzer {
   constructor(public employees: IEmployee[]) {}
 
   getNumberOfEmployees(): number {
