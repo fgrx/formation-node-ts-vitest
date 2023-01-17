@@ -1,5 +1,4 @@
 import Analyzer from "../analyzer";
-import IAnalyzer from "../interfaces/iAnalyzer";
 import IEmployee from "../interfaces/iEmployee";
 import { describe, expect, beforeEach, it } from "vitest";
 
@@ -23,7 +22,7 @@ const datas: IEmployee[] = [
 ];
 
 describe(">>>>>>>>>>analyzer class", () => {
-  let analyzer: IAnalyzer;
+  let analyzer: Analyzer;
 
   beforeEach(() => {
     analyzer = new Analyzer(datas);
